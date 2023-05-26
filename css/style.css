@@ -95,7 +95,7 @@ body main section article {
   opacity: 0;
   z-index: 1;
   transition-property: opacity;
-  transition-duration: 1s;
+  transition-duration: 0.3s;
 }
 body main section article:nth-of-type(0) {
   height: 400px;

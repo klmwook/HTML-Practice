@@ -1,5 +1,5 @@
+//내가 만든거~
 /*
-내가 만든거~ 
 const tab_btns = document.querySelector('#tab_btn');
 const tab_areas = document.querySelector('#tab_area');
 
@@ -25,6 +25,7 @@ function fninit(tabs, areas) {
 const main = document.querySelector('main');
 const btns = main.querySelectorAll('li');
 const boxs = main.querySelectorAll('article');
+const convertedSpeed = coverySpeed(boxs[0]);
 
 btns.forEach((btn, idx) => {
 	btn.addEventListener('click', (e) => {
@@ -36,16 +37,10 @@ btns.forEach((btn, idx) => {
 
 		[btns, boxs].forEach((el) => activation(el, idx));
 
-		const activeHT = parseInt(getComputedStyle(boxs[idx]).height);
+		matchHT(idx);
 
-		new Anime(main, {
-			prop: 'height',
-			value: activeHT,
-			duration: 500,
-		});
-
-		/* 
-    내가 작업 한 것 
+		//내가 작업 한 것
+		/*     
 		  //height 값 가져와서 찍어주기
 		  //console.log(getComputedStyle(boxs[idx])['height']);
 		  main.style.height = getComputedStyle(boxs[idx])['height'];
@@ -53,10 +48,35 @@ btns.forEach((btn, idx) => {
 	});
 });
 
+//탭 기능 구현 함수
 function activation(arrEl, index) {
 	try {
 		for (const el of arrEl) el.classList.remove('on');
 		arrEl[index].classList.add('on');
+	} catch (err) {
+		console.log(err.message);
+	}
+}
+
+//변경 된 height 가져온 것 처리 함수
+function matchHT(index) {
+	try {
+		const activeHT = parseInt(getComputedStyle(boxs[index]).height);
+
+		new Anime(main, {
+			prop: 'height',
+			value: activeHT,
+			duration: convertedSpeed,
+		});
+	} catch (err) {
+		console.log(err.message);
+	}
+}
+
+//css에 있는 duration 값을 가져와서 javascript에서 쓰기
+function coverySpeed(el) {
+	try {
+		return parseFloat(getComputedStyle(el).transitionDuration) * 1000;
 	} catch (err) {
 		console.log(err.message);
 	}
