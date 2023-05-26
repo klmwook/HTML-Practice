@@ -69,6 +69,7 @@ body main nav ul li a {
   align-items: center;
   font: bold 10px/1 "arial";
   color: #999;
+  transition: 0.5s;
 }
 body main nav ul li.on a {
   background-color: rgba(0, 0, 0, 0.7);
@@ -90,10 +91,15 @@ body main section article {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
+  display: flex;
+  opacity: 0;
+  z-index: 1;
+  transition-property: opacity;
+  transition-duration: 1s;
 }
 body main section article.on {
-  display: flex;
+  opacity: 1;
+  z-index: 2;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -57,6 +57,7 @@ body {
 						align-items: center;
 						font: bold 10px/1 'arial';
 						color: #999;
+						transition: 0.5s;
 					}
 
 					&.on {
@@ -85,10 +86,17 @@ body {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				display: none;
+				display: flex;
+				opacity: 0;
+				z-index: 1;
+				//transition: opacity 1s;
+				//transition: opacity 0.5s, width 1s, height 3s;
+				transition-property: opacity;
+				transition-duration: 1s;
 
 				&.on {
-					display: flex;
+					opacity: 1;
+					z-index: 2;
 				}
 			}
 		}
