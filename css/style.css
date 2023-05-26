@@ -97,6 +97,15 @@ body main section article {
   transition-property: opacity;
   transition-duration: 1s;
 }
+body main section article:nth-of-type(0) {
+  height: 400px;
+}
+body main section article:nth-of-type(1) {
+  height: 350px;
+}
+body main section article:nth-of-type(2) {
+  height: 450px;
+}
 body main section article.on {
   opacity: 1;
   z-index: 2;

@@ -35,6 +35,21 @@ btns.forEach((btn, idx) => {
 		if (isOn) return;
 
 		[btns, boxs].forEach((el) => activation(el, idx));
+
+		const activeHT = parseInt(getComputedStyle(boxs[idx]).height);
+
+		new Anime(main, {
+			prop: 'height',
+			value: activeHT,
+			duration: 500,
+		});
+
+		/* 
+    내가 작업 한 것 
+		  //height 값 가져와서 찍어주기
+		  //console.log(getComputedStyle(boxs[idx])['height']);
+		  main.style.height = getComputedStyle(boxs[idx])['height'];
+    */
 	});
 });
 
